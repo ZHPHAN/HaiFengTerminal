@@ -1,0 +1,9 @@
+银河电信-主,ctp|4040|tcp://yhzx-front1.yhqh.com:51205|tcp://yhzx-front1.yhqh.com:41213
+银河联通-主,ctp|4040|tcp://yhzx-front2.yhqh.com:51205|tcp://yhzx-front2.yhqh.com:41213
+模拟,ctp|1017|tcp://ctpmn1-front1.citicsf.com:51205|tcp://ctpmn1-front1.citicsf.com:51213
+股指仿真,ctp|66666|tcp://ctpfz1-front1.citicsf.com:51205|tcp://ctpfz1-front1.citicsf.com:51213
+飞创,xSpeed|galaxy|tcp://203.187.171.250:10910|tcp://203.187.171.250:10915
+飞马(公网),femas|0001|tcp://116.228.53.149:6666|tcp://116.228.53.149:6888
+证券,hsT2sdk|longone|11.1.1.1:9003|
+银河电信-二,ctp|4040|tcp://yhctp-front1.yhqh.com:41205|tcp://yhzx-front1.yhqh.com:41213
+银河联通-二,ctp|4040|tcp://yhctp-front2.yhqh.com:41205|tcp://yhzx-front2.yhqh.com:41213
