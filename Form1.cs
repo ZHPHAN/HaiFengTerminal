@@ -125,6 +125,9 @@ namespace hf_terminal
 			}
 			this.ToolStripMenuItemOption.DropDownItems.Add("-");//增加隔断
 
+			//过滤显示
+			_dtPosition.DefaultView.RowFilter = "Position > 0";
+
 			//加载合约列表
 			this.kryptonComboBoxInstrument.Items.AddRange(_t.DicInstrumentField.Keys.ToArray());
 
@@ -422,7 +425,11 @@ namespace hf_terminal
 			//刷新权益
 			this.toolStripLabelAvaliable.Text = _t.TradingAccount.Available.ToString("N1");
 			this.toolStripLabelFund.Text = _t.TradingAccount.Fund.ToString("N1");
-
+			this.toolStripLabelCloseProfit.Text = _t.TradingAccount.CloseProfit.ToString("N2");
+			this.toolStripLabelFee.Text = _t.TradingAccount.Commission.ToString("N2");
+			this.toolStripLabelMargin.Text = _t.TradingAccount.CurrMargin.ToString("N2");
+			this.toolStripLabelPositionProfit.Text = _t.TradingAccount.PositionProfit.ToString("N2");
+			this.toolStripLabelRisk.Text = (_t.TradingAccount.CurrMargin/_t.TradingAccount.Fund).ToString("P2");
 			//刷新行情
 			if (_q != null)
 				foreach (var v in _q.DicTick)
