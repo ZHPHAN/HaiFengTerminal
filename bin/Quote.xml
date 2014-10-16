@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Quote</name>
+    </assembly>
+    <members>
+        <member name="T:Quote2015.MarketData">
+            深度行情
+        </member>
+        <member name="F:Quote2015.MarketData.InstrumentID">
+            合约代码
+        </member>
+        <member name="F:Quote2015.MarketData.LastPrice">
+            最新价
+        </member>
+        <member name="F:Quote2015.MarketData.BidPrice">
+            申买价一
+        </member>
+        <member name="F:Quote2015.MarketData.BidVolume">
+            申买量一
+        </member>
+        <member name="F:Quote2015.MarketData.AskPrice">
+            申卖价一
+        </member>
+        <member name="F:Quote2015.MarketData.AskVolume">
+            申卖量一
+        </member>
+        <member name="F:Quote2015.MarketData.AveragePrice">
+            当日均价
+        </member>
+        <member name="F:Quote2015.MarketData.Volume">
+            数量
+        </member>
+        <member name="F:Quote2015.MarketData.OpenInterest">
+            持仓量
+        </member>
+        <member name="F:Quote2015.MarketData.UpdateTime">
+            最后修改时间:yyyyMMdd HH:mm:ss
+        </member>
+        <member name="F:Quote2015.MarketData.UpdateMillisec">
+            最后修改毫秒
+        </member>
+        <member name="F:Quote2015.MarketData.UpperLimitPrice">
+            涨停板价
+        </member>
+        <member name="F:Quote2015.MarketData.LowerLimitPrice">
+            跌停板价
+        </member>
+        <member name="M:Quote2015.Proxy.LoadLibrary(System.String)">
+            <summary>
+                原型是 :HMODULE LoadLibrary(LPCTSTR lpFileName);
+            </summary>
+            <param name="lpFileName"> DLL 文件名 </param>
+            <returns> 函数库模块的句柄 </returns>
+        </member>
+        <member name="M:Quote2015.Proxy.GetProcAddress(System.IntPtr,System.String)">
+            <summary>
+                原型是 : FARPROC GetProcAddress(HMODULE hModule, LPCWSTR lpProcName);
+            </summary>
+            <param name="hModule"> 包含需调用函数的函数库模块的句柄 </param>
+            <param name="lpProcName"> 调用函数的名称 </param>
+            <returns> 函数指针 </returns>
+        </member>
+        <member name="M:Quote2015.Proxy.FreeLibrary(System.IntPtr)">
+            <summary>
+                原型是 : BOOL FreeLibrary(HMODULE hModule);
+            </summary>
+            <param name="hModule"> 需释放的函数库模块的句柄 </param>
+            <returns> 是否已释放指定的 Dll </returns>
+        </member>
+        <member name="M:Quote2015.Proxy.Invoke(System.IntPtr,System.String,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="pHModule"></param>
+            <param name="lpProcName"></param>
+            <param name="t"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:Quote2015.Proxy.LoadDll(System.String)">
+            <summary>
+            加载C++文件,取得相应函数
+            </summary>
+        </member>
+        <member name="T:Quote2015.IntEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Quote2015.IntEventArgs.Value">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="T:Quote2015.TickEventArgs">
+            <summary>
+            数据事件
+            </summary>
+        </member>
+        <member name="F:Quote2015.TickEventArgs.Tick">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Quote2015.ErrorEventArgs.ErrorID">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="F:Quote2015.ErrorEventArgs.ErrorMsg">
+            <summary>
+            错误说明
+            </summary>
+        </member>
+        <member name="M:Quote2015.Quote.#ctor(System.String)">
+            <summary>
+            导入C++dll文件
+            </summary>
+            <param name="pFile">文件名(包含完整路径)</param>
+        </member>
+        <member name="F:Quote2015.Quote.DicTick">
+            <summary>
+            Tick数据
+            </summary>
+        </member>
+        <member name="F:Quote2015.Quote._OnRtnTick">
+            <summary>
+            行情响应用
+            </summary>
+        </member>
+        <member name="F:Quote2015.Quote.Server">
+            <summary>
+            服务器名称
+            </summary>
+        </member>
+        <member name="F:Quote2015.Quote.Broker">
+            <summary>
+            经济公司代码
+            </summary>
+        </member>
+        <member name="F:Quote2015.Quote.Investor">
+            <summary>
+            帐号
+            </summary>
+        </member>
+        <member name="F:Quote2015.Quote.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="E:Quote2015.Quote.OnRtnTick">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Quote2015.Quote.TradingDay">
+            <summary>
+            交易日
+            </summary>
+        </member>
+        <member name="P:Quote2015.Quote.IsLogin">
+            <summary>
+                登录成功
+            </summary>
+        </member>
+        <member name="T:Quote2015.Quote.RtnTick">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+    </members>
+</doc>

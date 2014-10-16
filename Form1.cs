@@ -17,6 +17,7 @@ using Trade2015;
 using Timer = System.Windows.Forms.Timer;
 using System.IO;
 using System.Reflection;
+using System.Media;
 
 namespace hf_terminal
 {
@@ -99,7 +100,14 @@ namespace hf_terminal
 			this.kryptonDataGridViewOrder.CellFormatting += kryptonDataGridView_CellFormatting;
 			this.kryptonDataGridViewTrade.CellFormatting += kryptonDataGridView_CellFormatting;
 			this.kryptonDataGridViewPosition.CellFormatting += kryptonDataGridView_CellFormatting;
-
+			this.kryptonComboBoxInstrument.SelectedIndexChanged += kryptonComboBox1_SelectedIndexChanged;
+			this.kryptonComboBoxInstrument.Enter += kryptonComboBoxInstrument_Enter;
+			this.kryptonLabel5.Click += kryptonLabel5_Click;
+			this.kryptonButtonCancel.Click += kryptonButtonCancel_Click;
+			this.kryptonButtonFAK.Click += kryptonButtonOrder_Click;
+			this.kryptonButtonFOK.Click += kryptonButtonOrder_Click;
+			this.kryptonButtonLimit.Click += kryptonButtonOrder_Click;
+			this.kryptonButtonMarket.Click += kryptonButtonOrder_Click;
 
 			//样式
 			foreach (var v in Enum.GetNames(typeof(PaletteModeManager)))
@@ -107,6 +115,7 @@ namespace hf_terminal
 				var item = this.ToolStripMenuItemStyle.DropDownItems.Add(v);
 				item.Click += (obj, arg) =>
 				{
+					RecalcNonClient();
 					this.kryptonManager1.GlobalPaletteMode = (PaletteModeManager)Enum.Parse(typeof(PaletteModeManager), ((ToolStripDropDownItem)obj).Text);
 				};
 			}
@@ -137,7 +146,7 @@ namespace hf_terminal
 				{
 					Assembly ass = Assembly.LoadFile(file.FullName);
 					var t = ass.GetTypes().FirstOrDefault(n => n.BaseType == typeof(UserControl));
-					if (t != null)
+					if (t != null && !t.FullName.StartsWith("Telerik."))
 					{
 						this.tabControl1.TabPages.Add(t.FullName, t.Name);
 						TabPage tp = this.tabControl1.TabPages[t.FullName];
@@ -206,20 +215,21 @@ namespace hf_terminal
 
 		void InitView(params KryptonDataGridView[] pViews)
 		{
-			MarketData o = new MarketData();
 			string[] names =
 			{
 				"AvgPrice","Custom", "Direction","Hedge","InsertTime","InstrumentID","IsLocal","LimitPrice","Offset","OrderID","Status","TradeTime","TradeVolume","Volume","VolumeLeft",
 				"Price","TradeID","TradingDay","ExchangeID",
 				"Position","TdPosition","YdPosition",
-				"AskPrice","AskVolume","AveragePrice","BidPrice","BidVolume","LastPrice","LowerLimitPrice","OpenInterest","UpdateMillisec","UpdateTime","UpperLimitPrice"
+				"AskPrice","AskVolume","AveragePrice","BidPrice","BidVolume","LastPrice","LowerLimitPrice","OpenInterest","UpdateMillisec","UpdateTime","UpperLimitPrice",
+				//"Available","CloseProfit","Commission","CurrMargin","FrozenCash","Fund","PositionProfit","PreBalance",
 			};
 			string[] txts =
 			{
-				"成交均价","自定义","买卖","投保","委托时间","合约","本地单","报价","开平","编号","状态","成交时间","成交数量","数量","剩余量",
+				"成交均价","自定义","买卖","投保","委托时间","合约","本地单","报价","开平","编号","状态","成交时间","末次成交数量","数量","剩余量",
 				"价格","编号","交易日","交易所",
 				"总持仓","今仓","昨仓",
-				"卖价","卖量","均价","买价","买量","最新价","跌板价","持仓量","毫秒","更新时间","涨板价"
+				"卖价","卖量","均价","买价","买量","最新价","跌板价","持仓量","毫秒","更新时间","涨板价",
+				//"可用资金","平仓盈亏","手续费","保证金","冻结","动态权益","持仓盈亏","昨结权益",
 			};
 			foreach (var view in pViews)
 			{
@@ -423,13 +433,14 @@ namespace hf_terminal
 			}
 
 			//刷新权益
-			this.toolStripLabelAvaliable.Text = _t.TradingAccount.Available.ToString("N1");
-			this.toolStripLabelFund.Text = _t.TradingAccount.Fund.ToString("N1");
-			this.toolStripLabelCloseProfit.Text = _t.TradingAccount.CloseProfit.ToString("N2");
-			this.toolStripLabelFee.Text = _t.TradingAccount.Commission.ToString("N2");
-			this.toolStripLabelMargin.Text = _t.TradingAccount.CurrMargin.ToString("N2");
-			this.toolStripLabelPositionProfit.Text = _t.TradingAccount.PositionProfit.ToString("N2");
-			this.toolStripLabelRisk.Text = (_t.TradingAccount.CurrMargin/_t.TradingAccount.Fund).ToString("P2");
+			if (this.kryptonDataGridViewAccount.RowCount == 0)
+				this.kryptonDataGridViewAccount.Rows.Add();
+			foreach (FieldInfo fi in typeof(TradingAccount).GetFields())
+			{
+				this.kryptonDataGridViewAccount.Rows[0].Cells[fi.Name].Value = ((double)fi.GetValue(_t.TradingAccount)).ToString("N2");
+			}
+			this.kryptonDataGridViewAccount.Rows[0].Cells["Risk"].Value = (_t.TradingAccount.CurrMargin / _t.TradingAccount.Fund).ToString("P2");
+
 			//刷新行情
 			if (_q != null)
 				foreach (var v in _q.DicTick)
@@ -528,7 +539,7 @@ namespace hf_terminal
 		}
 
 		//价格:指定/跟随
-		private void kryptonLabel5_Click(object sender, EventArgs e)
+		void kryptonLabel5_Click(object sender, EventArgs e)
 		{
 			Color pre = kryptonLabel5.StateNormal.ShortText.Color1;
 			kryptonLabel5.StateNormal.ShortText.Color1 = kryptonLabel5.StateNormal.ShortText.Color2;
@@ -554,7 +565,12 @@ namespace hf_terminal
 				int td = (int)row.Cells["TdPosition"].Value;
 				MarketData tick;
 				if (!_q.DicTick.TryGetValue(inst, out tick))
-					return;
+				{
+					_q.ReqSubscribeMarketData(inst);
+					Thread.Sleep(500);
+					if (!_q.DicTick.TryGetValue(inst, out tick))
+						return;
+				}
 				_t.ReqOrderInsert(inst, dire, OffsetType.CloseToday, dire == DirectionType.Buy ? tick.UpperLimitPrice : tick.LowerLimitPrice, td);
 				lots -= td;
 				if (lots > 0)
@@ -567,8 +583,14 @@ namespace hf_terminal
 		//双击撤单
 		void kryptonDataGridViewOrder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
+			if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 			if (Confirm("DblCancel", "双击撤单"))
-				this.kryptonButtonCancel.PerformClick();
+			{
+				DataGridViewRow row = this.kryptonDataGridViewOrder.Rows[e.RowIndex];
+				if ((OrderStatus)row.Cells["Status"].Value == OrderStatus.Filled || (OrderStatus)row.Cells["Status"].Value == OrderStatus.Canceled)
+					return;
+				_t.ReqOrderAction((int)row.Cells["OrderID"].Value);
+			}
 		}
 
 		//撤单
@@ -624,7 +646,7 @@ namespace hf_terminal
 					CheckboxText = @"以后不再确认",
 					CheckboxState = false,
 					WindowTitle = @"确认",
-					MainInstruction = pMsg + @"\t",//不加\t中文显示缺最后一个字
+					MainInstruction = string.Format("{0}\t", pMsg),//不加\t中文显示缺最后一个字
 					Icon = MessageBoxIcon.Question,
 					CommonButtons = TaskDialogButtons.OK | TaskDialogButtons.Cancel
 				};
@@ -636,6 +658,14 @@ namespace hf_terminal
 				return false;
 			}
 			return true;
+		}
+
+		void Ring(string pRing)
+		{
+			if (File.Exists("wav\\" + pRing + ".wav"))
+			{
+				new SoundPlayer("wav\\" + pRing + ".wav").Play();
+			}
 		}
 
 		void quote_OnRtnTick(object sender, TickEventArgs e)
@@ -654,21 +684,28 @@ namespace hf_terminal
 				if (((Trade)sender).DicOrderField.TryGetValue(e.ErrorID, out of))
 					((Trade)sender).ReqOrderInsert(of.InstrumentID, of.Direction, of.Offset, of.AvgPrice, of.Volume, of.Hedge, Math.Abs(of.LimitPrice) < 1E-6 ? OrderType.Market : OrderType.Limit, of.Custom);
 			}
+			Ring("指令单错误");
 		}
 
 		void trade_OnRtnNotice(object sender, StringEventArgs e)
 		{
 			ShowMsg(string.Format("帐号({0}),提醒:{1}", ((Trade)sender).Investor, e.Value));
+			Ring("信息到达");
 		}
 
 		void trade_OnRtnExchangeStatus(object sender, StatusEventArgs e)
 		{
 			ShowMsg(string.Format("{0,-12}{1,-8}:{2}", ((Trade)sender).Investor, e.Exchange, e.Status));
+			Ring("开收盘提示");
 		}
 
 		void trade_OnRtnOrder(object sender, OrderArgs e)
 		{
 			_queueOrderFresh.Enqueue(e.Value.OrderID);	//刷新时用
+			if (e.Value.Status == OrderStatus.Normal)
+			{
+				Ring("报入成功");
+			}
 		}
 
 		void trade_OnRtnTrade(object sender, TradeArgs e)
@@ -678,11 +715,13 @@ namespace hf_terminal
 				_queuePositionFresh.Enqueue(e.Value.InstrumentID + "_" + e.Value.Direction);	//刷持仓
 			else
 				_queuePositionFresh.Enqueue(e.Value.InstrumentID + "_" + (e.Value.Direction == DirectionType.Buy ? "Sell" : "Buy"));	//刷持仓
+			Ring("成交通知");
 		}
 
 		void trade_OnRtnCancel(object sender, OrderArgs e)
 		{
 			_queueOrderFresh.Enqueue(e.Value.OrderID);	//刷新时用
+			Ring("撤单");
 		}
 	}
 }

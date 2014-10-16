@@ -1,0 +1,588 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Trade</name>
+    </assembly>
+    <members>
+        <member name="F:Trade2015.OrderType.Limit">
+            <summary>
+            限价
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderType.Market">
+            <summary>
+            市价
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderType.FAK">
+            <summary>
+            部成即撤
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderType.FOK">
+            <summary>
+            全成全撤
+            </summary>
+        </member>
+        <member name="T:Trade2015.DirectionType">
+            <summary>
+            买卖方向
+            </summary>
+        </member>
+        <member name="F:Trade2015.DirectionType.Buy">
+            <summary>
+            买
+            </summary>
+        </member>
+        <member name="F:Trade2015.DirectionType.Sell">
+            <summary>
+            卖
+            </summary>
+        </member>
+        <member name="T:Trade2015.OffsetType">
+            <summary>
+            开平
+            </summary>
+        </member>
+        <member name="F:Trade2015.OffsetType.Open">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Trade2015.OffsetType.Close">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Trade2015.OffsetType.CloseToday">
+            <summary>
+            平今
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderStatus.Normal">
+            <summary>
+            委托
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderStatus.Partial">
+            <summary>
+            部成
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderStatus.Filled">
+            <summary>
+            全成
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderStatus.Canceled">
+            <summary>
+            撤单
+            </summary>
+        </member>
+        <member name="T:Trade2015.ExchangeStatusType">
+            <summary>
+            交易所状态
+            </summary>
+        </member>
+        <member name="F:Trade2015.ExchangeStatusType.BeforeTrading">
+            <summary>
+            开盘前
+            </summary>
+        </member>
+        <member name="F:Trade2015.ExchangeStatusType.NoTrading">
+            <summary>
+            非交易
+            </summary>
+        </member>
+        <member name="F:Trade2015.ExchangeStatusType.Trading">
+            <summary>
+            交易
+            </summary>
+        </member>
+        <member name="F:Trade2015.ExchangeStatusType.Closed">
+            <summary>
+            收盘
+            </summary>
+        </member>
+        <member name="T:Trade2015.HedgeType">
+            <summary>
+            投机套保标志
+            </summary>
+        </member>
+        <member name="F:Trade2015.HedgeType.Speculation">
+            <summary>
+            投机
+            </summary>
+        </member>
+        <member name="F:Trade2015.HedgeType.Arbitrage">
+            <summary>
+            套利
+            </summary>
+        </member>
+        <member name="F:Trade2015.HedgeType.Hedge">
+            <summary>
+            套保
+            </summary>
+        </member>
+        <member name="T:Trade2015.InstrumentField">
+            <summary>
+            合约信息
+            </summary>
+        </member>
+        <member name="F:Trade2015.InstrumentField.InstrumentID">
+            <summary>
+            合约代码
+            </summary>
+        </member>
+        <member name="F:Trade2015.InstrumentField.ProductID">
+            <summary>
+            产品代码
+            </summary>
+        </member>
+        <member name="F:Trade2015.InstrumentField.ExchangeID">
+            <summary>
+            交易所代码
+            </summary>
+        </member>
+        <member name="F:Trade2015.InstrumentField.VolumeMultiple">
+            <summary>
+            合约数量乘数
+            </summary>
+        </member>
+        <member name="F:Trade2015.InstrumentField.PriceTick">
+            <summary>
+            最小变动价位
+            </summary>
+        </member>
+        <member name="T:Trade2015.PositionField">
+            <summary>
+            投资者持仓明细
+            </summary>
+        </member>
+        <member name="F:Trade2015.PositionField.InstrumentID">
+            <summary>
+            合约代码
+            </summary>
+        </member>
+        <member name="F:Trade2015.PositionField.Direction">
+            <summary>
+            买卖
+            </summary>
+        </member>
+        <member name="F:Trade2015.PositionField.Price">
+            <summary>
+            持仓均价
+            </summary>
+        </member>
+        <member name="F:Trade2015.PositionField.Position">
+            <summary>
+            持仓总量
+            </summary>
+        </member>
+        <member name="F:Trade2015.PositionField.YdPosition">
+            <summary>
+            昨仓
+            </summary>
+        </member>
+        <member name="F:Trade2015.PositionField.TdPosition">
+            <summary>
+            持仓总量
+            </summary>
+        </member>
+        <member name="F:Trade2015.PositionField.Hedge">
+            <summary>
+            投机套保标志
+            </summary>
+        </member>
+        <member name="T:Trade2015.TradingAccount">
+            <summary>
+            帐户权益
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradingAccount.PreBalance">
+            <summary>
+            上次结算准备金
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradingAccount.PositionProfit">
+            <summary>
+            持仓盈亏
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradingAccount.CloseProfit">
+            <summary>
+            平仓盈亏
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradingAccount.Commission">
+            <summary>
+            手续费
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradingAccount.CurrMargin">
+            <summary>
+            当前保证金总额
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradingAccount.FrozenCash">
+            <summary>
+            冻结的资金
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradingAccount.Available">
+            <summary>
+            可用资金
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradingAccount.Fund">
+            <summary>
+            动态权益
+            </summary>
+        </member>
+        <member name="T:Trade2015.OrderField">
+            <summary>
+            报单
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.OrderID">
+            <summary>
+            报单标识
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.InstrumentID">
+            <summary>
+            合约
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.Direction">
+            <summary>
+            买卖
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.Offset">
+            <summary>
+            开平
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.LimitPrice">
+            <summary>
+            报价
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.AvgPrice">
+            <summary>
+            成交均价
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.InsertTime">
+            <summary>
+            委托时间(交易所)
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.TradeTime">
+            <summary>
+            最后成交时间
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.TradeVolume">
+            <summary>
+            本次成交量,trade更新
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.Volume">
+            <summary>
+            报单数量
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.VolumeLeft">
+            <summary>
+            未成交,trade更新
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.Hedge">
+            <summary>
+            投保
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.Status">
+            <summary>
+            是否被撤单
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.IsLocal">
+            <summary>
+            是否自身委托
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderField.Custom">
+            <summary>
+            客户自定义字段(xSpeed仅支持数字)
+            </summary>
+        </member>
+        <member name="T:Trade2015.TradeField">
+            <summary>
+            成交
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.TradeID">
+            <summary>
+            成交编号
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.InstrumentID">
+            <summary>
+            合约代码
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.ExchangeID">
+            <summary>
+            交易所代码
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.Direction">
+            <summary>
+            买卖方向
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.Offset">
+            <summary>
+            开平标志
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.Hedge">
+            <summary>
+            投机套保标志
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.Price">
+            <summary>
+            价格
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.Volume">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.TradeTime">
+            <summary>
+            成交时间
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.TradingDay">
+            <summary>
+            交易日
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeField.OrderID">
+            <summary>
+            对应的委托标识
+            </summary>
+        </member>
+        <member name="M:Trade2015.Proxy.#ctor(System.String)">
+            <summary>
+            导入C++dll文件
+            </summary>
+            <param name="pFile">文件名(包含完整路径)</param>
+        </member>
+        <member name="M:Trade2015.Proxy.LoadLibrary(System.String)">
+            <summary>
+                原型是 :HMODULE LoadLibrary(LPCTSTR lpFileName);
+            </summary>
+            <param name="lpFileName"> DLL 文件名 </param>
+            <returns> 函数库模块的句柄 </returns>
+        </member>
+        <member name="M:Trade2015.Proxy.GetProcAddress(System.IntPtr,System.String)">
+            <summary>
+                原型是 : FARPROC GetProcAddress(HMODULE hModule, LPCWSTR lpProcName);
+            </summary>
+            <param name="hModule"> 包含需调用函数的函数库模块的句柄 </param>
+            <param name="lpProcName"> 调用函数的名称 </param>
+            <returns> 函数指针 </returns>
+        </member>
+        <member name="M:Trade2015.Proxy.FreeLibrary(System.IntPtr)">
+            <summary>
+                原型是 : BOOL FreeLibrary(HMODULE hModule);
+            </summary>
+            <param name="hModule"> 需释放的函数库模块的句柄 </param>
+            <returns> 是否已释放指定的 Dll </returns>
+        </member>
+        <member name="M:Trade2015.Proxy.Invoke(System.IntPtr,System.String,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="pHModule"></param>
+            <param name="lpProcName"></param>
+            <param name="t"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:Trade2015.Proxy.LoadDll(System.String)">
+            <summary>
+            加载C++文件,取得相应函数
+            </summary>
+            <param name="pFile">格式:proxyXXXQuote.dll或proxyXXXTrade.dll;XXX-平台名</param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:Trade2015.Proxy.ReqOrderInsert(System.String,Trade2015.DirectionType,Trade2015.OffsetType,System.Double,System.Int32,Trade2015.HedgeType,Trade2015.OrderType,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pInstrument"></param>
+            <param name="pDirection"></param>
+            <param name="pOffset"></param>
+            <param name="pPrice">价格</param>
+            <param name="pVolume"></param>
+            <param name="pHedge"></param>
+            <param name="pType">报单类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Trade2015.IntEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Trade2015.IntEventArgs.Value">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="T:Trade2015.StringEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Trade2015.StringEventArgs.Value">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="T:Trade2015.ErrorEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Trade2015.ErrorEventArgs.ErrorID">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="F:Trade2015.ErrorEventArgs.ErrorMsg">
+            <summary>
+            错误说明
+            </summary>
+        </member>
+        <member name="T:Trade2015.StatusEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Trade2015.StatusEventArgs.Exchange">
+            <summary>
+            交易所/品种/合约
+            </summary>
+        </member>
+        <member name="F:Trade2015.StatusEventArgs.Status">
+            <summary>
+            交易状态
+            </summary>
+        </member>
+        <member name="T:Trade2015.OrderArgs">
+            <summary>
+            报单状态改变响应
+            </summary>
+        </member>
+        <member name="F:Trade2015.OrderArgs.Value">
+            <summary>
+            报单
+            </summary>
+        </member>
+        <member name="T:Trade2015.TradeArgs">
+            <summary>
+            报单成交响应
+            </summary>
+        </member>
+        <member name="F:Trade2015.TradeArgs.Value">
+            <summary>
+            报单
+            </summary>
+        </member>
+        <member name="F:Trade2015.Trade.DicExcStatus">
+            <summary>
+            交易所状态
+            </summary>
+        </member>
+        <member name="F:Trade2015.Trade.DicExcLoginTime">
+            <summary>
+            交易所时间
+            </summary>
+        </member>
+        <member name="F:Trade2015.Trade.DicInstrumentField">
+            <summary>
+            合约信息
+            </summary>
+        </member>
+        <member name="F:Trade2015.Trade.DicOrderField">
+            <summary>
+            报单. CTP:session|front|orderef
+            </summary>
+        </member>
+        <member name="F:Trade2015.Trade.DicTradeField">
+            <summary>
+            成交. CTP:TradeID+Direct(区分自成交)
+            </summary>
+        </member>
+        <member name="F:Trade2015.Trade.DicPositionField">
+            <summary>
+            持仓
+            </summary>
+        </member>
+        <member name="F:Trade2015.Trade.TradingAccount">
+            <summary>
+            资金权益
+            </summary>
+        </member>
+        <member name="M:Trade2015.Trade.ReqOrderInsert(System.String,Trade2015.DirectionType,Trade2015.OffsetType,System.Double,System.Int32,Trade2015.HedgeType,Trade2015.OrderType,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pInstrument"></param>
+            <param name="pDirection"></param>
+            <param name="pOffset"></param>
+            <param name="pPrice"></param>
+            <param name="pVolume"></param>
+            <param name="pHedge"></param>
+            <returns>正确返回0</returns>
+        </member>
+        <member name="P:Trade2015.Trade.Server">
+            <summary>
+            服务器名称
+            </summary>
+        </member>
+        <member name="P:Trade2015.Trade.Broker">
+            <summary>
+            经纪公司代码
+            </summary>
+        </member>
+        <member name="P:Trade2015.Trade.Investor">
+            <summary>
+            帐号
+            </summary>
+        </member>
+        <member name="P:Trade2015.Trade.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Trade2015.Trade.TradingDay">
+            <summary>
+            交易日
+            </summary>
+        </member>
+        <member name="P:Trade2015.Trade.IsLogin">
+            <summary>
+            登录成功
+            </summary>
+        </member>
+    </members>
+</doc>
