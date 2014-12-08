@@ -40,6 +40,15 @@
 			this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
 			this.kryptonComboBoxInfo = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
 			this.kryptonDataGridViewAccount = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+			this.PreBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CloseProfit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.PositionProfit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Commission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CurrMargin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.FrozenCash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Fund = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Available = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Risk = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -75,15 +84,6 @@
 			this.kryptonDataGridViewTrade = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
 			this.kryptonHeaderGroup2 = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
 			this.kryptonDataGridViewPosition = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-			this.PreBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CloseProfit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.PositionProfit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Commission = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CurrMargin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.FrozenCash = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Fund = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Available = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Risk = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.menuStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonComboBoxInfo)).BeginInit();
@@ -149,38 +149,38 @@
 			// 
 			// menuStrip1
 			// 
-			this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.menuStrip1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemStyle,
             this.ToolStripMenuItemOption,
             this.关于ToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1161, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1161, 25);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
 			// ToolStripMenuItemStyle
 			// 
 			this.ToolStripMenuItemStyle.Name = "ToolStripMenuItemStyle";
-			this.ToolStripMenuItemStyle.Size = new System.Drawing.Size(57, 20);
+			this.ToolStripMenuItemStyle.Size = new System.Drawing.Size(59, 21);
 			this.ToolStripMenuItemStyle.Text = "样式(&S)";
 			// 
 			// ToolStripMenuItemOption
 			// 
 			this.ToolStripMenuItemOption.Name = "ToolStripMenuItemOption";
-			this.ToolStripMenuItemOption.Size = new System.Drawing.Size(43, 20);
+			this.ToolStripMenuItemOption.Size = new System.Drawing.Size(44, 21);
 			this.ToolStripMenuItemOption.Text = "选项";
 			// 
 			// 关于ToolStripMenuItem
 			// 
 			this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-			this.关于ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+			this.关于ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
 			this.关于ToolStripMenuItem.Text = "帮助";
 			// 
 			// statusStrip1
 			// 
-			this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.statusStrip1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 694);
@@ -193,12 +193,12 @@
 			// toolStripStatusLabel1
 			// 
 			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(55, 17);
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(56, 17);
 			this.toolStripStatusLabel1.Text = "状态信息";
 			// 
 			// kryptonManager1
 			// 
-			this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Blue;
+			this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalOffice2003;
 			// 
 			// kryptonComboBoxInfo
 			// 
@@ -234,7 +234,7 @@
 			this.kryptonDataGridViewAccount.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
 			this.kryptonDataGridViewAccount.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
 			this.kryptonDataGridViewAccount.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-			this.kryptonDataGridViewAccount.Location = new System.Drawing.Point(0, 24);
+			this.kryptonDataGridViewAccount.Location = new System.Drawing.Point(0, 25);
 			this.kryptonDataGridViewAccount.Name = "kryptonDataGridViewAccount";
 			this.kryptonDataGridViewAccount.ReadOnly = true;
 			this.kryptonDataGridViewAccount.RowHeadersWidth = 6;
@@ -245,25 +245,81 @@
 			this.kryptonDataGridViewAccount.Size = new System.Drawing.Size(1161, 44);
 			this.kryptonDataGridViewAccount.TabIndex = 5;
 			// 
+			// PreBalance
+			// 
+			this.PreBalance.HeaderText = "昨结";
+			this.PreBalance.Name = "PreBalance";
+			this.PreBalance.ReadOnly = true;
+			// 
+			// CloseProfit
+			// 
+			this.CloseProfit.HeaderText = "平仓盈亏";
+			this.CloseProfit.Name = "CloseProfit";
+			this.CloseProfit.ReadOnly = true;
+			// 
+			// PositionProfit
+			// 
+			this.PositionProfit.HeaderText = "持仓盈亏";
+			this.PositionProfit.Name = "PositionProfit";
+			this.PositionProfit.ReadOnly = true;
+			// 
+			// Commission
+			// 
+			this.Commission.HeaderText = "手续费";
+			this.Commission.Name = "Commission";
+			this.Commission.ReadOnly = true;
+			// 
+			// CurrMargin
+			// 
+			this.CurrMargin.HeaderText = "保证金";
+			this.CurrMargin.Name = "CurrMargin";
+			this.CurrMargin.ReadOnly = true;
+			// 
+			// FrozenCash
+			// 
+			this.FrozenCash.HeaderText = "冻结资金";
+			this.FrozenCash.Name = "FrozenCash";
+			this.FrozenCash.ReadOnly = true;
+			// 
+			// Fund
+			// 
+			this.Fund.HeaderText = "动态权益";
+			this.Fund.Name = "Fund";
+			this.Fund.ReadOnly = true;
+			// 
+			// Available
+			// 
+			this.Available.HeaderText = "可用资金";
+			this.Available.Name = "Available";
+			this.Available.ReadOnly = true;
+			// 
+			// Risk
+			// 
+			this.Risk.HeaderText = "风险度";
+			this.Risk.Name = "Risk";
+			this.Risk.ReadOnly = true;
+			// 
 			// kryptonSplitContainer1
 			// 
 			this.kryptonSplitContainer1.ContainerBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderForm;
 			this.kryptonSplitContainer1.Cursor = System.Windows.Forms.Cursors.Default;
 			this.kryptonSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.kryptonSplitContainer1.Location = new System.Drawing.Point(0, 68);
+			this.kryptonSplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+			this.kryptonSplitContainer1.Location = new System.Drawing.Point(0, 69);
 			this.kryptonSplitContainer1.Name = "kryptonSplitContainer1";
 			this.kryptonSplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
 			// 
 			// kryptonSplitContainer1.Panel1
 			// 
 			this.kryptonSplitContainer1.Panel1.Controls.Add(this.tabControl1);
+			this.kryptonSplitContainer1.Panel1MinSize = 320;
 			// 
 			// kryptonSplitContainer1.Panel2
 			// 
 			this.kryptonSplitContainer1.Panel2.Controls.Add(this.kryptonSplitContainer2);
 			this.kryptonSplitContainer1.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-			this.kryptonSplitContainer1.Size = new System.Drawing.Size(1161, 626);
-			this.kryptonSplitContainer1.SplitterDistance = 177;
+			this.kryptonSplitContainer1.Size = new System.Drawing.Size(1161, 625);
+			this.kryptonSplitContainer1.SplitterDistance = 320;
 			this.kryptonSplitContainer1.TabIndex = 6;
 			// 
 			// tabControl1
@@ -273,7 +329,7 @@
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(1161, 177);
+			this.tabControl1.Size = new System.Drawing.Size(1161, 320);
 			this.tabControl1.TabIndex = 0;
 			// 
 			// tabPage1
@@ -282,7 +338,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(1153, 151);
+			this.tabPage1.Size = new System.Drawing.Size(1153, 294);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "行情";
 			this.tabPage1.UseVisualStyleBackColor = true;
@@ -292,6 +348,7 @@
 			this.kryptonDataGridViewTick.AllowUserToAddRows = false;
 			this.kryptonDataGridViewTick.AllowUserToDeleteRows = false;
 			this.kryptonDataGridViewTick.AllowUserToOrderColumns = true;
+			this.kryptonDataGridViewTick.ColumnHeadersHeight = 27;
 			this.kryptonDataGridViewTick.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.kryptonDataGridViewTick.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.kryptonDataGridViewTick.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
@@ -303,15 +360,16 @@
 			this.kryptonDataGridViewTick.Name = "kryptonDataGridViewTick";
 			this.kryptonDataGridViewTick.ReadOnly = true;
 			this.kryptonDataGridViewTick.RowHeadersWidth = 8;
-			this.kryptonDataGridViewTick.RowTemplate.Height = 23;
+			this.kryptonDataGridViewTick.RowTemplate.Height = 27;
 			this.kryptonDataGridViewTick.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.kryptonDataGridViewTick.Size = new System.Drawing.Size(1147, 145);
+			this.kryptonDataGridViewTick.Size = new System.Drawing.Size(1147, 288);
 			this.kryptonDataGridViewTick.TabIndex = 0;
 			// 
 			// kryptonSplitContainer2
 			// 
 			this.kryptonSplitContainer2.Cursor = System.Windows.Forms.Cursors.Default;
 			this.kryptonSplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.kryptonSplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
 			this.kryptonSplitContainer2.Location = new System.Drawing.Point(0, 0);
 			this.kryptonSplitContainer2.Name = "kryptonSplitContainer2";
 			this.kryptonSplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -324,8 +382,8 @@
 			// kryptonSplitContainer2.Panel2
 			// 
 			this.kryptonSplitContainer2.Panel2.Controls.Add(this.kryptonSplitContainer4);
-			this.kryptonSplitContainer2.Size = new System.Drawing.Size(1161, 444);
-			this.kryptonSplitContainer2.SplitterDistance = 215;
+			this.kryptonSplitContainer2.Size = new System.Drawing.Size(1161, 300);
+			this.kryptonSplitContainer2.SplitterDistance = 203;
 			this.kryptonSplitContainer2.TabIndex = 0;
 			// 
 			// kryptonSplitContainer3
@@ -353,12 +411,13 @@
 			this.kryptonSplitContainer3.Panel1.Controls.Add(this.kryptonLabel3);
 			this.kryptonSplitContainer3.Panel1.Controls.Add(this.kryptonLabel2);
 			this.kryptonSplitContainer3.Panel1.Controls.Add(this.kryptonLabel1);
+			this.kryptonSplitContainer3.Panel1MinSize = 160;
 			// 
 			// kryptonSplitContainer3.Panel2
 			// 
 			this.kryptonSplitContainer3.Panel2.Controls.Add(this.kryptonHeaderGroup3);
 			this.kryptonSplitContainer3.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-			this.kryptonSplitContainer3.Size = new System.Drawing.Size(1161, 215);
+			this.kryptonSplitContainer3.Size = new System.Drawing.Size(1161, 203);
 			this.kryptonSplitContainer3.SplitterDistance = 189;
 			this.kryptonSplitContainer3.TabIndex = 0;
 			// 
@@ -462,7 +521,7 @@
 			// 
 			this.kryptonRadioButtonCloseToday.Location = new System.Drawing.Point(48, 1);
 			this.kryptonRadioButtonCloseToday.Name = "kryptonRadioButtonCloseToday";
-			this.kryptonRadioButtonCloseToday.Size = new System.Drawing.Size(47, 20);
+			this.kryptonRadioButtonCloseToday.Size = new System.Drawing.Size(48, 22);
 			this.kryptonRadioButtonCloseToday.TabIndex = 2;
 			this.kryptonRadioButtonCloseToday.Values.Text = "平今";
 			// 
@@ -471,7 +530,7 @@
 			this.kryptonRadioButtonOpen.Checked = true;
 			this.kryptonRadioButtonOpen.Location = new System.Drawing.Point(4, 1);
 			this.kryptonRadioButtonOpen.Name = "kryptonRadioButtonOpen";
-			this.kryptonRadioButtonOpen.Size = new System.Drawing.Size(47, 20);
+			this.kryptonRadioButtonOpen.Size = new System.Drawing.Size(48, 22);
 			this.kryptonRadioButtonOpen.TabIndex = 2;
 			this.kryptonRadioButtonOpen.Values.Text = "开仓";
 			// 
@@ -479,7 +538,7 @@
 			// 
 			this.kryptonRadioButtonClose.Location = new System.Drawing.Point(95, 1);
 			this.kryptonRadioButtonClose.Name = "kryptonRadioButtonClose";
-			this.kryptonRadioButtonClose.Size = new System.Drawing.Size(47, 20);
+			this.kryptonRadioButtonClose.Size = new System.Drawing.Size(48, 22);
 			this.kryptonRadioButtonClose.TabIndex = 2;
 			this.kryptonRadioButtonClose.Values.Text = "平仓";
 			// 
@@ -506,7 +565,7 @@
 			this.kryptonRadioButtonBuy.Checked = true;
 			this.kryptonRadioButtonBuy.Location = new System.Drawing.Point(3, 1);
 			this.kryptonRadioButtonBuy.Name = "kryptonRadioButtonBuy";
-			this.kryptonRadioButtonBuy.Size = new System.Drawing.Size(35, 20);
+			this.kryptonRadioButtonBuy.Size = new System.Drawing.Size(36, 22);
 			this.kryptonRadioButtonBuy.TabIndex = 2;
 			this.kryptonRadioButtonBuy.Values.Text = "买";
 			// 
@@ -514,7 +573,7 @@
 			// 
 			this.kryptonRadioButtonSell.Location = new System.Drawing.Point(48, 1);
 			this.kryptonRadioButtonSell.Name = "kryptonRadioButtonSell";
-			this.kryptonRadioButtonSell.Size = new System.Drawing.Size(35, 20);
+			this.kryptonRadioButtonSell.Size = new System.Drawing.Size(36, 22);
 			this.kryptonRadioButtonSell.TabIndex = 2;
 			this.kryptonRadioButtonSell.Values.Text = "卖";
 			// 
@@ -522,7 +581,7 @@
 			// 
 			this.kryptonComboBoxInstrument.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.kryptonComboBoxInstrument.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.kryptonComboBoxInstrument.DropDownWidth = 121;
+			this.kryptonComboBoxInstrument.DropDownWidth = 125;
 			this.kryptonComboBoxInstrument.Location = new System.Drawing.Point(42, 6);
 			this.kryptonComboBoxInstrument.Name = "kryptonComboBoxInstrument";
 			this.kryptonComboBoxInstrument.Size = new System.Drawing.Size(121, 21);
@@ -533,7 +592,7 @@
 			// 
 			this.kryptonLabel5.Location = new System.Drawing.Point(7, 112);
 			this.kryptonLabel5.Name = "kryptonLabel5";
-			this.kryptonLabel5.Size = new System.Drawing.Size(35, 20);
+			this.kryptonLabel5.Size = new System.Drawing.Size(35, 22);
 			this.kryptonLabel5.StateNormal.ShortText.Color1 = System.Drawing.SystemColors.Highlight;
 			this.kryptonLabel5.StateNormal.ShortText.Color2 = System.Drawing.SystemColors.MenuText;
 			this.kryptonLabel5.TabIndex = 0;
@@ -543,7 +602,7 @@
 			// 
 			this.kryptonLabel4.Location = new System.Drawing.Point(7, 86);
 			this.kryptonLabel4.Name = "kryptonLabel4";
-			this.kryptonLabel4.Size = new System.Drawing.Size(35, 20);
+			this.kryptonLabel4.Size = new System.Drawing.Size(35, 22);
 			this.kryptonLabel4.TabIndex = 0;
 			this.kryptonLabel4.Values.Text = "数量";
 			// 
@@ -551,7 +610,7 @@
 			// 
 			this.kryptonLabel3.Location = new System.Drawing.Point(7, 60);
 			this.kryptonLabel3.Name = "kryptonLabel3";
-			this.kryptonLabel3.Size = new System.Drawing.Size(35, 20);
+			this.kryptonLabel3.Size = new System.Drawing.Size(35, 22);
 			this.kryptonLabel3.TabIndex = 0;
 			this.kryptonLabel3.Values.Text = "开平";
 			// 
@@ -559,7 +618,7 @@
 			// 
 			this.kryptonLabel2.Location = new System.Drawing.Point(7, 34);
 			this.kryptonLabel2.Name = "kryptonLabel2";
-			this.kryptonLabel2.Size = new System.Drawing.Size(35, 20);
+			this.kryptonLabel2.Size = new System.Drawing.Size(35, 22);
 			this.kryptonLabel2.TabIndex = 0;
 			this.kryptonLabel2.Values.Text = "买卖";
 			// 
@@ -567,7 +626,7 @@
 			// 
 			this.kryptonLabel1.Location = new System.Drawing.Point(7, 6);
 			this.kryptonLabel1.Name = "kryptonLabel1";
-			this.kryptonLabel1.Size = new System.Drawing.Size(35, 20);
+			this.kryptonLabel1.Size = new System.Drawing.Size(35, 22);
 			this.kryptonLabel1.TabIndex = 0;
 			this.kryptonLabel1.Values.Text = "合约";
 			// 
@@ -582,7 +641,7 @@
 			// 
 			this.kryptonHeaderGroup3.Panel.Controls.Add(this.kryptonDataGridViewOrder);
 			this.kryptonHeaderGroup3.Panel.Controls.Add(this.kryptonSplitContainer5);
-			this.kryptonHeaderGroup3.Size = new System.Drawing.Size(967, 215);
+			this.kryptonHeaderGroup3.Size = new System.Drawing.Size(967, 203);
 			this.kryptonHeaderGroup3.TabIndex = 1;
 			this.kryptonHeaderGroup3.ValuesPrimary.Heading = "委托";
 			// 
@@ -591,6 +650,7 @@
 			this.kryptonDataGridViewOrder.AllowUserToAddRows = false;
 			this.kryptonDataGridViewOrder.AllowUserToDeleteRows = false;
 			this.kryptonDataGridViewOrder.AllowUserToOrderColumns = true;
+			this.kryptonDataGridViewOrder.ColumnHeadersHeight = 27;
 			this.kryptonDataGridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.kryptonDataGridViewOrder.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.kryptonDataGridViewOrder.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
@@ -602,9 +662,9 @@
 			this.kryptonDataGridViewOrder.Name = "kryptonDataGridViewOrder";
 			this.kryptonDataGridViewOrder.ReadOnly = true;
 			this.kryptonDataGridViewOrder.RowHeadersWidth = 8;
-			this.kryptonDataGridViewOrder.RowTemplate.Height = 23;
+			this.kryptonDataGridViewOrder.RowTemplate.Height = 27;
 			this.kryptonDataGridViewOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.kryptonDataGridViewOrder.Size = new System.Drawing.Size(926, 183);
+			this.kryptonDataGridViewOrder.Size = new System.Drawing.Size(926, 173);
 			this.kryptonDataGridViewOrder.TabIndex = 3;
 			// 
 			// kryptonSplitContainer5
@@ -622,8 +682,8 @@
 			// kryptonSplitContainer5.Panel2
 			// 
 			this.kryptonSplitContainer5.Panel2.Controls.Add(this.kryptonButtonCancelAll);
-			this.kryptonSplitContainer5.Size = new System.Drawing.Size(39, 183);
-			this.kryptonSplitContainer5.SplitterDistance = 86;
+			this.kryptonSplitContainer5.Size = new System.Drawing.Size(39, 173);
+			this.kryptonSplitContainer5.SplitterDistance = 80;
 			this.kryptonSplitContainer5.TabIndex = 2;
 			// 
 			// kryptonButtonCancel
@@ -631,7 +691,7 @@
 			this.kryptonButtonCancel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.kryptonButtonCancel.Location = new System.Drawing.Point(0, 0);
 			this.kryptonButtonCancel.Name = "kryptonButtonCancel";
-			this.kryptonButtonCancel.Size = new System.Drawing.Size(39, 86);
+			this.kryptonButtonCancel.Size = new System.Drawing.Size(39, 80);
 			this.kryptonButtonCancel.TabIndex = 0;
 			this.kryptonButtonCancel.Values.Text = "撤单";
 			// 
@@ -640,7 +700,7 @@
 			this.kryptonButtonCancelAll.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.kryptonButtonCancelAll.Location = new System.Drawing.Point(0, 0);
 			this.kryptonButtonCancelAll.Name = "kryptonButtonCancelAll";
-			this.kryptonButtonCancelAll.Size = new System.Drawing.Size(39, 92);
+			this.kryptonButtonCancelAll.Size = new System.Drawing.Size(39, 88);
 			this.kryptonButtonCancelAll.TabIndex = 1;
 			this.kryptonButtonCancelAll.Values.Text = "全撤";
 			// 
@@ -659,7 +719,7 @@
 			// 
 			this.kryptonSplitContainer4.Panel2.Controls.Add(this.kryptonHeaderGroup2);
 			this.kryptonSplitContainer4.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-			this.kryptonSplitContainer4.Size = new System.Drawing.Size(1161, 224);
+			this.kryptonSplitContainer4.Size = new System.Drawing.Size(1161, 92);
 			this.kryptonSplitContainer4.SplitterDistance = 544;
 			this.kryptonSplitContainer4.TabIndex = 0;
 			// 
@@ -673,7 +733,7 @@
 			// kryptonHeaderGroup1.Panel
 			// 
 			this.kryptonHeaderGroup1.Panel.Controls.Add(this.kryptonDataGridViewTrade);
-			this.kryptonHeaderGroup1.Size = new System.Drawing.Size(544, 224);
+			this.kryptonHeaderGroup1.Size = new System.Drawing.Size(544, 92);
 			this.kryptonHeaderGroup1.TabIndex = 0;
 			this.kryptonHeaderGroup1.ValuesPrimary.Heading = "成交";
 			// 
@@ -682,6 +742,7 @@
 			this.kryptonDataGridViewTrade.AllowUserToAddRows = false;
 			this.kryptonDataGridViewTrade.AllowUserToDeleteRows = false;
 			this.kryptonDataGridViewTrade.AllowUserToOrderColumns = true;
+			this.kryptonDataGridViewTrade.ColumnHeadersHeight = 27;
 			this.kryptonDataGridViewTrade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.kryptonDataGridViewTrade.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.kryptonDataGridViewTrade.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
@@ -693,9 +754,9 @@
 			this.kryptonDataGridViewTrade.Name = "kryptonDataGridViewTrade";
 			this.kryptonDataGridViewTrade.ReadOnly = true;
 			this.kryptonDataGridViewTrade.RowHeadersWidth = 8;
-			this.kryptonDataGridViewTrade.RowTemplate.Height = 23;
+			this.kryptonDataGridViewTrade.RowTemplate.Height = 27;
 			this.kryptonDataGridViewTrade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.kryptonDataGridViewTrade.Size = new System.Drawing.Size(542, 192);
+			this.kryptonDataGridViewTrade.Size = new System.Drawing.Size(542, 62);
 			this.kryptonDataGridViewTrade.TabIndex = 1;
 			// 
 			// kryptonHeaderGroup2
@@ -708,7 +769,7 @@
 			// kryptonHeaderGroup2.Panel
 			// 
 			this.kryptonHeaderGroup2.Panel.Controls.Add(this.kryptonDataGridViewPosition);
-			this.kryptonHeaderGroup2.Size = new System.Drawing.Size(612, 224);
+			this.kryptonHeaderGroup2.Size = new System.Drawing.Size(612, 92);
 			this.kryptonHeaderGroup2.TabIndex = 1;
 			this.kryptonHeaderGroup2.ValuesPrimary.Heading = "持仓";
 			// 
@@ -717,6 +778,7 @@
 			this.kryptonDataGridViewPosition.AllowUserToAddRows = false;
 			this.kryptonDataGridViewPosition.AllowUserToDeleteRows = false;
 			this.kryptonDataGridViewPosition.AllowUserToOrderColumns = true;
+			this.kryptonDataGridViewPosition.ColumnHeadersHeight = 27;
 			this.kryptonDataGridViewPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.kryptonDataGridViewPosition.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.kryptonDataGridViewPosition.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
@@ -728,64 +790,10 @@
 			this.kryptonDataGridViewPosition.Name = "kryptonDataGridViewPosition";
 			this.kryptonDataGridViewPosition.ReadOnly = true;
 			this.kryptonDataGridViewPosition.RowHeadersWidth = 8;
-			this.kryptonDataGridViewPosition.RowTemplate.Height = 23;
+			this.kryptonDataGridViewPosition.RowTemplate.Height = 27;
 			this.kryptonDataGridViewPosition.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.kryptonDataGridViewPosition.Size = new System.Drawing.Size(610, 192);
+			this.kryptonDataGridViewPosition.Size = new System.Drawing.Size(610, 62);
 			this.kryptonDataGridViewPosition.TabIndex = 1;
-			// 
-			// PreBalance
-			// 
-			this.PreBalance.HeaderText = "昨结";
-			this.PreBalance.Name = "PreBalance";
-			this.PreBalance.ReadOnly = true;
-			// 
-			// CloseProfit
-			// 
-			this.CloseProfit.HeaderText = "平仓盈亏";
-			this.CloseProfit.Name = "CloseProfit";
-			this.CloseProfit.ReadOnly = true;
-			// 
-			// PositionProfit
-			// 
-			this.PositionProfit.HeaderText = "持仓盈亏";
-			this.PositionProfit.Name = "PositionProfit";
-			this.PositionProfit.ReadOnly = true;
-			// 
-			// Commission
-			// 
-			this.Commission.HeaderText = "手续费";
-			this.Commission.Name = "Commission";
-			this.Commission.ReadOnly = true;
-			// 
-			// CurrMargin
-			// 
-			this.CurrMargin.HeaderText = "保证金";
-			this.CurrMargin.Name = "CurrMargin";
-			this.CurrMargin.ReadOnly = true;
-			// 
-			// FrozenCash
-			// 
-			this.FrozenCash.HeaderText = "冻结资金";
-			this.FrozenCash.Name = "FrozenCash";
-			this.FrozenCash.ReadOnly = true;
-			// 
-			// Fund
-			// 
-			this.Fund.HeaderText = "动态权益";
-			this.Fund.Name = "Fund";
-			this.Fund.ReadOnly = true;
-			// 
-			// Available
-			// 
-			this.Available.HeaderText = "可用资金";
-			this.Available.Name = "Available";
-			this.Available.ReadOnly = true;
-			// 
-			// Risk
-			// 
-			this.Risk.HeaderText = "风险度";
-			this.Risk.Name = "Risk";
-			this.Risk.ReadOnly = true;
 			// 
 			// Form1
 			// 

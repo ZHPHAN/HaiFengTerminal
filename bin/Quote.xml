@@ -8,43 +8,69 @@
             深度行情
         </member>
         <member name="F:Quote2015.MarketData.InstrumentID">
+            <summary>
             合约代码
+            </summary>
         </member>
         <member name="F:Quote2015.MarketData.LastPrice">
+            <summary>
             最新价
+            </summary>
         </member>
         <member name="F:Quote2015.MarketData.BidPrice">
+             <summary>
             申买价一
+             </summary>
         </member>
         <member name="F:Quote2015.MarketData.BidVolume">
+             <summary>
             申买量一
+             </summary>
         </member>
         <member name="F:Quote2015.MarketData.AskPrice">
+             <summary>
             申卖价一
+             </summary>
         </member>
         <member name="F:Quote2015.MarketData.AskVolume">
+             <summary>
             申卖量一
+             </summary>
         </member>
         <member name="F:Quote2015.MarketData.AveragePrice">
+             <summary>
             当日均价
+             </summary>
         </member>
         <member name="F:Quote2015.MarketData.Volume">
+             <summary>
             数量
+             </summary>
         </member>
         <member name="F:Quote2015.MarketData.OpenInterest">
+             <summary>
             持仓量
+             </summary>
         </member>
         <member name="F:Quote2015.MarketData.UpdateTime">
-            最后修改时间:yyyyMMdd HH:mm:ss
+             <summary>
+            最后修改时间:yyyyMMdd HH:mm:ss(20141114:日期由主程序处理,因大商所取到的actionday==tradingday)
+             </summary>
         </member>
         <member name="F:Quote2015.MarketData.UpdateMillisec">
+             <summary>
             最后修改毫秒
+             </summary>
         </member>
         <member name="F:Quote2015.MarketData.UpperLimitPrice">
+             <summary>
             涨停板价
+             </summary>
         </member>
         <member name="F:Quote2015.MarketData.LowerLimitPrice">
+             <summary>
             跌停板价
+             </summary>
         </member>
         <member name="M:Quote2015.Proxy.LoadLibrary(System.String)">
             <summary>

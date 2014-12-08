@@ -66,6 +66,8 @@ namespace hf_terminal
 			Interval = 1200,
 		};
 
+		private bool reConnected;
+
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			FormLogin fLogin = new FormLogin();
@@ -102,6 +104,7 @@ namespace hf_terminal
 			this.kryptonDataGridViewPosition.CellFormatting += kryptonDataGridView_CellFormatting;
 			this.kryptonComboBoxInstrument.SelectedIndexChanged += kryptonComboBox1_SelectedIndexChanged;
 			this.kryptonComboBoxInstrument.Enter += kryptonComboBoxInstrument_Enter;
+			this.kryptonComboBoxInstrument.DropDown += kryptonComboBoxInstrument_Enter;
 			this.kryptonLabel5.Click += kryptonLabel5_Click;
 			this.kryptonButtonCancel.Click += kryptonButtonCancel_Click;
 			this.kryptonButtonFAK.Click += kryptonButtonOrder_Click;
@@ -137,14 +140,13 @@ namespace hf_terminal
 			//过滤显示
 			_dtPosition.DefaultView.RowFilter = "Position > 0";
 
-			//加载合约列表
-			this.kryptonComboBoxInstrument.Items.AddRange(_t.DicInstrumentField.Keys.ToArray());
 
 			//加载插件
 			if (Directory.Exists(Application.StartupPath + "\\plugin"))
 				foreach (var file in new DirectoryInfo(Application.StartupPath + "\\plugin").GetFiles("*.dll"))
 				{
 					Assembly ass = Assembly.LoadFile(file.FullName);
+					//加载hf_plat报错:增加对hf_plat_core的引用
 					var t = ass.GetTypes().FirstOrDefault(n => n.BaseType == typeof(UserControl));
 					if (t != null && !t.FullName.StartsWith("Telerik."))
 					{
@@ -155,6 +157,31 @@ namespace hf_terminal
 						tp.Controls.Add(uc);
 					}
 				}
+			if (File.Exists(Application.StartupPath + "\\hf_plat_terminal.dll"))
+				//foreach (var file in new DirectoryInfo(Application.StartupPath + "\\strategy").GetFiles("*.dll"))
+				{
+					Assembly ass = Assembly.LoadFile(Application.StartupPath + "\\hf_plat_terminal.dll");
+					//加载hf_plat报错:增加对hf_plat_core的引用
+					var t = ass.GetTypes().FirstOrDefault(n => n.BaseType == typeof(UserControl));
+					if (t != null)
+					{
+						this.tabControl1.TabPages.Add(t.FullName, t.Name);
+						TabPage tp = this.tabControl1.TabPages[t.FullName];
+						var uc = (UserControl)Activator.CreateInstance(t, _t, _q);
+						uc.Dock = DockStyle.Fill;
+						tp.Controls.Add(uc);
+					}
+				}
+			//if (File.Exists(Application.StartupPath + "\\strategy\\hf_plat_core.dll"))
+			//{
+			//	Assembly ass = Assembly.LoadFile(Application.StartupPath + "\\strategy\\hf_plat_core.dll");
+			//	var t = ass.GetType("hf_plat_core.Plat");
+			//	var uc = (UserControl)Activator.CreateInstance(t, _t, _q);
+			//	this.tabControl1.TabPages.Add(t.FullName, t.Name);
+			//	TabPage tp = this.tabControl1.TabPages[t.FullName];
+			//	uc.Dock = DockStyle.Fill;
+			//	tp.Controls.Add(uc);
+			//}
 
 			_timer.Tick += _timer_Tick;
 			_timer.Start();
@@ -186,6 +213,7 @@ namespace hf_terminal
 
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
+			_timer.Stop();
 			SetConfig("Left", this.Left.ToString(CultureInfo.InvariantCulture));
 			SetConfig("Top", this.Top.ToString(CultureInfo.InvariantCulture));
 			SetConfig("Height", this.Height.ToString(CultureInfo.InvariantCulture));

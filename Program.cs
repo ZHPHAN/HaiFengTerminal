@@ -43,7 +43,7 @@ namespace hf_terminal
 			{
 				using (StreamWriter sw = new StreamWriter(_errLog, true))
 				{
-					sw.WriteLine(DateTime.Now.ToString("yyyyMMdd HH:mm:ss") + "\t" + string.Format("出现应用程序未处理的异常 异常类型：{0} 异常消息：{1} 异常位置：{2} ", error.GetType().Name, error.Message, error.StackTrace), "main");
+					sw.WriteLine(DateTime.Now.ToString("yyyyMMdd HH:mm:ss") + "\t" + string.Format("出现应用程序未处理的异常 异常类型：{0} 异常消息：{1} 异常位置：{2} ", error.GetType().Name, error.Message, error.StackTrace));
 				}
 			}
 			else
